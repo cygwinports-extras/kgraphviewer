@@ -1,0 +1,30 @@
+diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4*' -x autom4te.cache -x config.cache -x config.log -x config.status -x config.h -x config.h.in -x ABOUT-NLS -x Makefile.in.in -x Makevars.template -x '*SlackBuild*' -x '*.egg-info' -x '*.class' -x '*.pyc' -x '*.mo' -x '*.gmo' -x '*.orig' -x '*.rej' -x '*.spec' -x '*.temp' -x '*~' -x '*.stackdump' -x COPYING -x INSTALL -x compile -x config-ml.in -x config.guess -x config.sub -x depcomp -x elisp-comp -x install-sh -x ltmain.sh -x mdate-sh -x missing -x mkinstalldirs -x py-compile -x symlink-tree -x texinfo.tex -x ylwrap -x Makefile.in -x makefile.in -x configure -x omf.make -x xmldocs.make -x gnome-doc-utils.make -x gnome-doc-utils.m4 -x intltool.m4 -x intltool-extract -x intltool-extract.in -x intltool-merge -x intltool-merge.in -x intltool-update -x intltool-update.in -x 'libtool.m4.in*' -x configure.bak -x configure.files -x acinclude.m4 -x subdirs -x configure.in origsrc/kgraphviewer-1.0.4/kgraphviewer/src/part/Makefile.am src/kgraphviewer-1.0.4/kgraphviewer/src/part/Makefile.am
+--- origsrc/kgraphviewer-1.0.4/kgraphviewer/src/part/Makefile.am	2007-07-14 07:11:58.000000000 -0500
++++ src/kgraphviewer-1.0.4/kgraphviewer/src/part/Makefile.am	2007-08-28 09:20:59.944928000 -0500
+@@ -24,10 +24,10 @@
+ FontsCache.cpp \
+ kgraphviewer_partsettings.kcfgc
+ 
+-libkgraphviewerpart_la_LIBADD = ../printing/libkgraphviewerprinting.la 
++libkgraphviewerpart_la_LIBADD = ../printing/libkgraphviewerprinting.la $(LIB_KHTML) $(LIB_KPARTS) $(LIB_KDEUI) $(LIB_KDECORE) $(LIB_QT)
+ ## $(top_builddir)/kdeprint/libkdeprint.la $(top_builddir)/kutils/libkutils.la $(top_builddir)/kjs/libkjs.la $(LUA_LIBS)
+ 
+-libkgraphviewerpart_la_LDFLAGS = $(all_libraries) $(LIB_QT) $(LIB_KPARTS) $(LIB_KHTML)
++libkgraphviewerpart_la_LDFLAGS = $(all_libraries) -no-undefined
+ 
+ 
+ # These paths are KDE specific. Use them:
+diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4*' -x autom4te.cache -x config.cache -x config.log -x config.status -x config.h -x config.h.in -x ABOUT-NLS -x Makefile.in.in -x Makevars.template -x '*SlackBuild*' -x '*.egg-info' -x '*.class' -x '*.pyc' -x '*.mo' -x '*.gmo' -x '*.orig' -x '*.rej' -x '*.spec' -x '*.temp' -x '*~' -x '*.stackdump' -x COPYING -x INSTALL -x compile -x config-ml.in -x config.guess -x config.sub -x depcomp -x elisp-comp -x install-sh -x ltmain.sh -x mdate-sh -x missing -x mkinstalldirs -x py-compile -x symlink-tree -x texinfo.tex -x ylwrap -x Makefile.in -x makefile.in -x configure -x omf.make -x xmldocs.make -x gnome-doc-utils.make -x gnome-doc-utils.m4 -x intltool.m4 -x intltool-extract -x intltool-extract.in -x intltool-merge -x intltool-merge.in -x intltool-update -x intltool-update.in -x 'libtool.m4.in*' -x configure.bak -x configure.files -x acinclude.m4 -x subdirs -x configure.in origsrc/kgraphviewer-1.0.4/kgraphviewer/src/printing/Makefile.am src/kgraphviewer-1.0.4/kgraphviewer/src/printing/Makefile.am
+--- origsrc/kgraphviewer-1.0.4/kgraphviewer/src/printing/Makefile.am	2007-07-14 07:11:58.000000000 -0500
++++ src/kgraphviewer-1.0.4/kgraphviewer/src/printing/Makefile.am	2007-08-28 09:21:59.022363400 -0500
+@@ -23,8 +23,8 @@
+ KgvPageLayoutHeader.cpp \
+ KgvPageLayoutSize.cpp
+ 
+-libkgraphviewerprinting_la_LDFLAGS = $(all_libraries)
+-libkgraphviewerprinting_la_LIBADD = $(LIB_KDECORE) $(LIB_QT) $(LIB_KIO) $(LIB_KPARTS) $(LIB_KHML) $(LIB_KDEPRINT)
++libkgraphviewerprinting_la_LDFLAGS = $(all_libraries) -no-undefined
++libkgraphviewerprinting_la_LIBADD = $(LIB_KHML) $(LIB_KDEPRINT) $(LIB_KPARTS) $(LIB_KIO) $(LIB_KDEUI) $(LIB_KDECORE) $(LIB_QT)
+ 
+ kgraphviewerprintingincludedir = $(includedir) $(includedir)/src $(includedir)/printing
+ 

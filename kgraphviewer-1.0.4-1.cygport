@@ -1,0 +1,7 @@
+inherit kde3
+
+DESCRIPTION="KDE GraphViz viewer"
+HOMEPAGE="http://extragear.kde.org/apps/kgraphviewer/"
+SRC_URI="http://download.gna.org/${PN}/${P}.tar.bz2"
+
+CPPFLAGS+=" -I/usr/include/boost-1_33_1"
