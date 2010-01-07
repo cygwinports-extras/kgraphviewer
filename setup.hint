@@ -1,0 +1,9 @@
+category: Graphics KDE
+requires: graphviz libgcc1 libgraph4 libgvc5 libkdecore5 libQtCore4 libQtDBus4 libQtGui4 libstdc++6
+sdesc: "KDE GraphViz Dot file viewer and editor"
+ldesc: "GraphViewer is a GraphViz dot graph viewer for KDE. The GraphViz 
+program suite is a free software set of layout engines for graphs. They 
+are commonly used in scientific domains and particularly in computer 
+science. KGraphViewer is aimed at providing GraphViz with a modern 
+user-friendly GUI with all the power of a well integrated KDE 
+application."
