@@ -1,0 +1,5 @@
+inherit kde4
+
+DESCRIPTION="KDE GraphViz Dot file viewer and editor"
+
+SRC_URI="https://api.opensuse.org/public/source/home:milianw:kdeapps/${PN}/${P}.tar.gz"
