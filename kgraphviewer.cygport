@@ -1,0 +1,17 @@
+inherit kde4
+
+NAME="kgraphviewer"
+VERSION=2.1.1
+RELEASE=3
+CATEGORY="Graphics KDE"
+SUMMARY="KDE GraphViz Dot file viewer and editor"
+DESCRIPTION="GraphViewer is a GraphViz dot graph viewer for KDE. The GraphViz
+program suite is a free software set of layout engines for graphs. They are
+commonly used in scientific domains and particularly in computer science.
+KGraphViewer is aimed at providing GraphViz with a modern user-friendly GUI
+with all the power of a well integrated KDE application."
+
+SRC_URI="https://api.opensuse.org/public/source/home:milianw:kdeapps/${PN}/${P}.tar.gz"
+PATCH_URI="2.1.1-boost1_50.patch"
+
+REQUIRES="graphviz"
