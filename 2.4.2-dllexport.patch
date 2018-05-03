@@ -1,0 +1,11 @@
+--- origsrc/kgraphviewer-2.4.2/src/part/CMakeLists.txt	2017-09-27 08:15:56.000000000 -0500
++++ src/kgraphviewer-2.4.2/src/part/CMakeLists.txt	2018-02-25 23:51:33.763816800 -0600
+@@ -77,7 +77,7 @@ ecm_setup_version(${PROJECT_VERSION}
+ set( kgraphviewerpart_PART_SRCS kgraphviewer_part.cpp ${kgraphviewerlib_LIB_DEBUG_SRCS})
+ 
+ add_library(kgraphviewerpart MODULE ${kgraphviewerpart_PART_SRCS})
+-generate_export_header(kgraphviewerpart BASE_NAME kgraphviewer)
++generate_export_header(kgraphviewerlib BASE_NAME kgraphviewer)
+ 
+ target_link_libraries(kgraphviewerpart Qt5::Core KF5::Parts gvc cgraph pathplan cdt kgraphviewerlib)
+ 

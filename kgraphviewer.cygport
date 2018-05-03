@@ -1,9 +1,9 @@
-inherit kde4
+inherit kf5
 
 NAME="kgraphviewer"
-VERSION=2.1.1
-RELEASE=3
-CATEGORY="Graphics KDE"
+VERSION=2.4.2
+RELEASE=1
+CATEGORY="Graphics"
 SUMMARY="KDE GraphViz Dot file viewer and editor"
 DESCRIPTION="GraphViewer is a GraphViz dot graph viewer for KDE. The GraphViz
 program suite is a free software set of layout engines for graphs. They are
@@ -11,7 +11,36 @@ commonly used in scientific domains and particularly in computer science.
 KGraphViewer is aimed at providing GraphViz with a modern user-friendly GUI
 with all the power of a well integrated KDE application."
 
-SRC_URI="https://api.opensuse.org/public/source/home:milianw:kdeapps/${PN}/${P}.tar.gz"
-PATCH_URI="2.1.1-boost1_50.patch"
+SRC_URI="mirror://kde/stable/kgraphviewer/${VERSION}/kgraphviewer-${VERSION}.tar.xz"
+PATCH_URI="2.4.2-dllexport.patch"
 
-REQUIRES="graphviz"
+PKG_NAMES="kgraphviewer" # libkgraphviewer3 libkgraphviewer-devel"
+kgraphviewer_REQUIRES="graphviz"
+kgraphviewer_CONTENTS="
+	etc/postinstall/kgraphviewer.sh
+	etc/xdg/kgraphviewer.categories
+	usr/bin/cygkgraphviewer-3.dll
+	usr/bin/kgraphviewer.exe
+	usr/lib/qt5/plugins/kgraphviewerpart.dll
+	usr/share/applications/org.kde.kgraphviewer.desktop
+	usr/share/config.kcfg/kgraphviewer_partsettings.kcfg
+	usr/share/config.kcfg/kgraphviewersettings.kcfg
+	usr/share/doc/HTML/*/kgraphviewer/
+	usr/share/doc/${NAME}
+	usr/share/icons/hicolor/*/apps/kgraphviewer.*
+	usr/share/kgraphviewerpart/
+	usr/share/kservices5/kgraphviewer_part.desktop
+	usr/share/kxmlgui5/kgraphviewer/
+	usr/share/locale/*/LC_MESSAGES/kgraphviewer.mo
+	usr/share/metainfo/org.kde.kgraphviewer.appdata.xml
+	usr/share/metainfo/org.kde.libkgraphviewer.metainfo.xml
+"
+libkgraphviewer3_CONTENTS="
+	usr/bin/cygkgraphviewer-3.dll
+"
+libkgraphviewer_devel_CONTENTS="
+	usr/include/kgraphviewer/
+	usr/lib/cmake/KGraphViewerPart/
+	usr/lib/libkgraphviewer.dll.a
+"
+PKG_IGNORE=${libkgraphviewer_devel_CONTENTS}
